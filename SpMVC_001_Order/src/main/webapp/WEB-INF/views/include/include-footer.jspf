@@ -1,0 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<footer>
+	<!-- address 문자코드
+	
+	&문서로 표시할떄 쓰면안됨
+	&amp 같은 특수기호일때만 써야함 
+	 -->
+		<address>CopyRight &copy; dhdlqkqh2003@naver.com</address>
+		<address>Korea &amp; 대한민국 &sum;	&hearts; &#128512;  </address>
+	</footer>
+	
