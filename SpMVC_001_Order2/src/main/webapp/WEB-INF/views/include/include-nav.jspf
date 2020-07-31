@@ -1,0 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<nav>
+	<ul>
+	<!-- <hr/> p3 책갈피 
+		퀴리에서 값을받으면 콘트롤러에서 매개변수를 받아서 아무값을 만들수있다
+	
+	-->
+		<li><a href = "#">Home</a></li>
+		<li><a href = "list">주문서</a></li>
+		<li><a href = "#p2">공지사항</a></li>
+		<li><a href = "order?seq=43">바로가기</a></li>  
+		<li><a href = "#">로그인</a></li>
+		<li><a href = "#">회원가입</a></li>
+		
+	</ul>
+
+
+</nav>
