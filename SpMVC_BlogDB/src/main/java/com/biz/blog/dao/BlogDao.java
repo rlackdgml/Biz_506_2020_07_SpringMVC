@@ -14,6 +14,8 @@ public interface BlogDao {
 	// return type이 절대 List 형이 아니다.
 	public BlogVO findBySeq(long seq);
 	
+	
+	
 	// 제목으로 검색하기
 	// PK칼럼이 아닌 나머지 칼럼을 대상으로 조회를 하면
 	// 설령 데이터가 1개밖에 나오지 않더라도
@@ -23,6 +25,7 @@ public interface BlogDao {
 	// VO에 담긴 데이터를 보내서 DB Table에 추가를 하고
 	// 성공을 하면 1이상의 리턴결과를 정수형으로 리턴한다
 	public int insert(BlogVO blogVO);
+	
 	public int update(BlogVO blogVO);
 	public int delete(long seq);
 
