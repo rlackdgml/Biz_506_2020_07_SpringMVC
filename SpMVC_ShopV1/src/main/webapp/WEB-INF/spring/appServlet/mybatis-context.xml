@@ -28,7 +28,6 @@
 		<property name="configLocation"
 			value="/WEB-INF/spring/mybatis/mybatis-config.xml" />
 	</bean>
-
 	<!-- sqlSessionTemplate -->
 	<bean class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg ref="sqlSessionFactory" index="0" />
