@@ -2,7 +2,7 @@ package com.biz.shop.persistence;
 
 import java.util.List;
 
-public interface GenericDao<VO,PK> {
+public interface ChangeDao<VO,PK> {
 	
 	public List<VO> selectAll();
 	public VO findById(PK id); 
@@ -11,5 +11,4 @@ public interface GenericDao<VO,PK> {
 	public void update(VO vo);
 	public void delete(PK id);
 
-	
 }

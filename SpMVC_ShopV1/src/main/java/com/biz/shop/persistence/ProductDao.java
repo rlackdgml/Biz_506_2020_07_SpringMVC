@@ -7,6 +7,10 @@ import com.biz.shop.model.ProductVO;
 public interface ProductDao extends GenericDao<ProductVO, String> {
 	
 	public List<ProductVO> findByTitle(String title);
+	
+	
+
+	
 
 	
 }
