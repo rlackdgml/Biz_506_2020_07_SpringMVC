@@ -6,6 +6,4 @@ public interface DeptService extends GenericService<DeptVO, String>{
 
 	public String getDCode();
 
-	DeptVO findByID(String id);
-
 }

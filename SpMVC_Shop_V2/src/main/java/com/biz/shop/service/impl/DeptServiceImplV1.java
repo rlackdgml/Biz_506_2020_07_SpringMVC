@@ -23,9 +23,9 @@ public class DeptServiceImplV1 implements DeptService{
 	}
 
 	@Override
-	public DeptVO findById(String id) {
+	public DeptVO findByID(String id) {
 
-		return deptDao.findById(id);
+		return deptDao.findByID(id);
 		
 		// return null;
 	}

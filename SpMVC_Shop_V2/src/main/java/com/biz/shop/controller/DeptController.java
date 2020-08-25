@@ -69,7 +69,7 @@ public class DeptController {
 	@RequestMapping(value="/detail",method=RequestMethod.GET)
 	public String detail(@RequestParam("id") String d_code, Model model) {
 		
-		DeptVO deptVO = dService.findById(d_code);
+		DeptVO deptVO = dService.findByID(d_code);
 		model.addAttribute("DEPT_VO",deptVO);
 		model.addAttribute("BODY","DEPT_DETAIL");
 		return "home";
