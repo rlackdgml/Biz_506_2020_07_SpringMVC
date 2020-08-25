@@ -8,19 +8,18 @@ import lombok.ToString;
 
 @Getter
 @Setter
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class DeptVO {
 	
-	
-    private String d_code;	    // CHAR(4)		PRIMARY KEY,
-    private String d_name;	    // nVARCHAR2(50)	NOT NULL,	
-    private String d_ceo;	    // nVARCHAR2(30)	NOT NULL,	
-    private String d_tel;	    // VARCHAR(20),
-    private String d_address;	// nVARCHAR2(255),
-    private String d_manager;	// nVARCHAR2(50),
-    private String d_mn_tel;	// VARCHAR(20)		
-    
+	private String d_code;		//char(4 byte)
+	private String d_name;		//nvarchar2(50 char)
+	private String d_ceo;		//nvarchar2(30 char)
+	private String d_tel;		//varchar2(20 byte)
+	private String d_address;	//nvarchar2(255 char)
+	private String d_manager;	//nvarchar2(50 char)
+	private String d_mn_tel;	//varchar2(20 byte)
+	private Byte d_not_user;	//char(1 byte)
 
 }

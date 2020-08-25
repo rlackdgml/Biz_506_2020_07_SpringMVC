@@ -10,9 +10,9 @@ public interface GenericDao<VO,PK> {
 	public VO findById(PK id); 
 	
 	public int insert(VO vo);
-	public void update(VO vo);
-	public void delete(PK id);
-	ProductVO findById(String id);
+	public int update(VO vo);
+	public int delete(PK id);
+	ProductVO findByID(String id);
 
 	
 }
