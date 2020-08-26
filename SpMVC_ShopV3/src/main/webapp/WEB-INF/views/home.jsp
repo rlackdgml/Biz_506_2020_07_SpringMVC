@@ -18,12 +18,12 @@
 }
 
 header {
-	background-image: url("${rootPath}/static/images/2575244A5243C3540D.jpg");
+	background-image: url("${rootPath}/static/images/landscape.jpg");
 	background-attachment: fixed;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: 100%;
-	color: black;
+	color: white;
 	text-align: center;
 	padding: 2rem;
 }
@@ -37,8 +37,8 @@ header h2 {
 </head>
 <body>
 	<header>
-		<h2>빛나리 쇼핑몰 V2</h2>
-		<p>빛나리 쇼핑몰 2020 V2</p>
+		<h2>빛나리 쇼핑몰 V1</h2>
+		<p>빛나리 쇼핑몰 2020 V1</p>
 	</header>
 	<%@ include file="/WEB-INF/views/include/include-nav.jspf"%>
 	<section>
@@ -61,6 +61,14 @@ header h2 {
 			<c:when test="${BODY == 'DEPT_DETAIL' }">
 				<%@ include file="/WEB-INF/views/component/dept/dept_detail.jspf" %>
 			</c:when>
+			<c:when test="${BODY == 'MEM_WRITE' }">
+				<%@ include file="/WEB-INF/views/component/member/member_write.jspf" %>
+			</c:when>
+			<c:when test="${BODY == 'LOGIN' }">
+				<%@ include file="/WEB-INF/views/component/member/member_login.jspf" %>
+			</c:when>
+
+
 			<c:otherwise>
 				<%@ include file="/WEB-INF/views/include/include-main.jspf"%>
 			</c:otherwise>
