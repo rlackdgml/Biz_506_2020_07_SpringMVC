@@ -7,6 +7,6 @@ import com.biz.book.model.BookVO;
  * 별도로 정의하지 않아도 된다.
  */
 
-public interface BookDao extends GenericDao<BookVO, Integer> {
+public interface BookDao extends GenericDao<BookVO, Long> {
 
 }

@@ -15,7 +15,7 @@
 	}
 	nav#search-nav {
 		width:100%;
-		background-color: green;
+		background-color: violet;
 		color:white;
 	}
 	nav#search-nav form {
@@ -53,17 +53,15 @@
 	section#search-list div {
 		width:95%;
 		border:1px solid #777;
-		background-color: #ccc;
+		background-color: skyblue;
 		border-radius: 5px;
 		
 		margin:5px;
 		padding:5px;
 	}
-
 	section#search-list div p b {
 		color:blue;
 	}
-
 	img {
 		float:left;
 		margin:10px;
@@ -87,7 +85,7 @@
 			<h3>${naver.title}</h3>
 			<a href="${naver.link}" target=_new>
 				<c:if test="${naver.image == 'noImage' }">
-					<img src="${rootPath}/resources/images/images.png" 
+					<img src="${rootPath}/resources/images/noImage.png" 
 							width="50px">
 				</c:if>
 				<c:if test="${naver.image != 'noImage' }">
@@ -95,9 +93,9 @@
 				</c:if>
 			</a>
 			<p>${naver.description}</p>
+			<p>ISBN : ${naver.isbn}</p>
 		</div>	
 	</c:forEach>
 </section>
-
 </body>
 </html>
