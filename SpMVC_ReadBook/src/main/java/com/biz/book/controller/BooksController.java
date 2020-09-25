@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,6 +27,7 @@ public class BooksController {
 	@Autowired
 	private BookDao bookDao;
 
+	@Transactional
 	// locatlhost:8080/book/books
 	// locatlhost:8080/book/books/
 	// @ResponseBody
@@ -43,7 +45,7 @@ public class BooksController {
 		
 		LocalDate localDate = LocalDate.now();
 		String todayString = DateTimeFormatter
-				.ofPattern("yyyyMMdd")
+				.ofPattern("yyyy-MM-dd")
 				.format(localDate);
 		
 		BookVO bookVO = BookVO.builder()
@@ -65,7 +67,7 @@ public class BooksController {
 	 * VO 클래스, 객체를 매개변수로 사용할때
 	 * @ModelAttribbute("VO") 를 필수로 사용하자
 	 */
-	@RequestMapping(value="/input",method=RequestMethod.POST)
+	@RequestMapping(value="/input",method=RequestMethod.POST)  //submit 했을때 보여주는 방식
 	public String input(@ModelAttribute("bookVO") BookVO bookVO) {
 		
 		log.debug(bookVO.toString());

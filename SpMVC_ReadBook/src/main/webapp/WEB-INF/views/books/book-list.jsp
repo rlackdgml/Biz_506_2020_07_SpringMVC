@@ -8,8 +8,8 @@
 <meta charset="UTF-8">
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <title>나의 홈페이지</title>
-<link href="${rootPath}/static/css/book-list.css?ver=2020-09-24-002" rel="stylesheet">
-<script src="${rootPath}/static/js/book-list.js?ver=2020-09-24-001"></script>
+<link href="${rootPath}/static/css/book-list.css?ver=2020-09-25-002" rel="stylesheet">
+<script src="${rootPath}/static/js/book-list.js?ver=2020-09-25-002"></script>
 </head>
 <body>
 <table id="book-list"> 
