@@ -94,3 +94,9 @@
 		</tr>
 		
 </table>
+<section id = "read-book-body">
+	<%@ include file = "/WEB-INF/views/read-book/read-book-write.jsp" %>
+
+
+</section>
+	

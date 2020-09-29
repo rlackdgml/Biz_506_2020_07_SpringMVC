@@ -1,6 +1,7 @@
 package com.biz.book.controller;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
@@ -12,10 +13,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.biz.book.mapper.BookDao;
 import com.biz.book.model.BookVO;
+import com.biz.book.model.ReadBookVO;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -42,17 +43,13 @@ public class BooksController {
 
 	@RequestMapping(value = "/input", method = RequestMethod.GET)
 	public String input(Model model) {
-		
+
 		LocalDate localDate = LocalDate.now();
-		String todayString = DateTimeFormatter
-				.ofPattern("yyyy-MM-dd")
-				.format(localDate);
-		
-		BookVO bookVO = BookVO.builder()
-						.buydate(todayString)
-						.build();
+		String todayString = DateTimeFormatter.ofPattern("yyyy-MM-dd").format(localDate);
+
+		BookVO bookVO = BookVO.builder().buydate(todayString).build();
 		model.addAttribute("BODY", "BOOK-WRITE");
-		model.addAttribute("bookVO",bookVO);
+		model.addAttribute("bookVO", bookVO);
 		return "home";
 
 		// Controller의 Mapping method의 return type이 String일때
@@ -61,25 +58,25 @@ public class BooksController {
 		// 자동으로 생성된다.
 		// return null
 	}
-	
+
 	/*
-	 * spring form taglib를 사용하여 write form을 만들었을 경우에는
-	 * VO 클래스, 객체를 매개변수로 사용할때
+	 * spring form taglib를 사용하여 write form을 만들었을 경우에는 VO 클래스, 객체를 매개변수로 사용할때
+	 * 
 	 * @ModelAttribbute("VO") 를 필수로 사용하자
 	 */
-	@RequestMapping(value="/input",method=RequestMethod.POST)  //submit 했을때 보여주는 방식
+	@RequestMapping(value = "/input", method = RequestMethod.POST) // submit 했을때 보여주는 방식
 	public String input(@ModelAttribute("bookVO") BookVO bookVO) {
-		
+
 		log.debug(bookVO.toString());
-		
+
 		int ret = bookDao.insert(bookVO);
-		if(ret < 1) {
+		if (ret < 1) {
 			// insert가 실패했으므로 그에 대한 메시지를 보여주는 페이지로 Jump
 		}
 		return "redirect:/books";
-		
+
 	}
-	
+
 	// localhost:8080/book/books/detail/3 이라고 Request가 오면
 	// 맨 끝의 숫자 3을 Mapping 주소의 {book_seq} 위에 Mapping 한다
 	// 매개변수에 설정된 PathVariable에 따라 String id 변수에
@@ -94,6 +91,23 @@ public class BooksController {
 		// log.debug(bookVO.toString());
 		
 		model.addAttribute("BOOKVO",bookVO);
+		
+		LocalDateTime lDateTime = LocalDateTime.now();
+		String lDate = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+				.format(lDateTime);
+		String lTime = DateTimeFormatter
+				.ofPattern("HH:mm:SS")
+				.format(lDateTime);
+	 
+		
+
+		
+		ReadBookVO readBookVO = ReadBookVO.builder()
+					.r_date(lDate)
+					.r_stime(lTime)
+					.build();
+		
+		model.addAttribute("readBookVO",readBookVO );
 		model.addAttribute("BODY","BOOK-DETAIL");
 		return "home" ;
 		

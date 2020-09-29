@@ -18,7 +18,7 @@
 }
 
 header {
-	background-image: url("${rootPath}/static/images/2575244A5243C3540D.jpg");
+	
 	background-attachment: fixed;
 	background-position: center;
 	background-repeat: no-repeat;
