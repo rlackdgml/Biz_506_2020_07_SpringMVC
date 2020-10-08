@@ -13,6 +13,12 @@
 		<!-- 설정을 해줘야 한다. -->
 		<context:component-scan base-package="com.biz.book.service.auth"/>
 		
+		<!-- 권한 검사를 할때 prefix 설정하는 클래스 bean  -->
+		<!-- 이 클래스를 bean 설정하면서 construnct-arg value="" : prefix 제거하는 효과  -->
+		<!-- security 버전마다 조금씩 차이가 있어서 설정값이 적용이 안되는 경우가 있다 -->
+		<!-- org.springframework.security.config.core.GrantedAuthorityDefaults -->
+		
+		
 		<!-- spring security에서 사용할 AuthenticationProvider를 구현한 -->
 		<!-- 클래스를 bean 등록 -->
 		
@@ -57,11 +63,11 @@
 								 password-parameter="password"/>
 			<security:logout logout-url="/logout" logout-success-url="/" invalidate-session="true"/>
 			
-			<security:intercept-url pattern="/admin/**" access="hasRole('ADMIN')"/>
-			<security:intercept-url pattern="/member/mypage" access="hasAnyRole('ADMIN', 'USER')"/>
-			<security:intercept-url pattern="/member/password" access="hasAnyRole('ADMIN','USER')"/>
+			<security:intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')"/>
+			<security:intercept-url pattern="/member/mypage" access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')"/>
+			<security:intercept-url pattern="/member/password" access="hasAnyRole('ROLE_ADMIN','ROLE_USER')"/>
 			<security:intercept-url pattern="/member/**" access="permitAll()"/>
-			<security:intercept-url pattern="/books/**" access="hasAnyRole('ADMIN','USER')"/>
+			<security:intercept-url pattern="/books/**" access="hasAnyRole('ROLE_ADMIN','ROLE_USER')"/>
 			<security:intercept-url pattern="/**" access="permitAll()"/>
 		</security:http>
 		
