@@ -60,6 +60,8 @@ import com.biz.book.model.UserDetailsVO;
 
 public class AuthProviderImpl implements AuthenticationProvider {
 	
+	
+	
 	@Autowired
 	@Qualifier("userDetailServiceV1")
 	private UserDetailsService userService;
