@@ -5,6 +5,7 @@
 section#main-body {
 	width: 100%;
 	display: flex;
+	
 }
 
 section#main-body article {
