@@ -14,7 +14,7 @@ table#book-detail {
 
 table#book-detail .title td {
 	padding: 0.5rem 1rem;
-	background-color: orange;
+	background-color: skyblue;
 	border-bottom: 1px solid gray;
 }
 

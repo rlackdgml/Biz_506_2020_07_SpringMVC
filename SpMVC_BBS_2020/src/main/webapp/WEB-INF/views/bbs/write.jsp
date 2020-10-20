@@ -81,13 +81,13 @@ button#save {
 			['view',['fullscreen','codeview']]
 			
 		]
-		$("#b_content").summernote({lang:"ko-KR",width:"80%",height:"200px", toolbar : toolbar
+		$("#b_content").summernote({lang:"ko-KR",width:"100%",height:"200px",toolbar : toolbar
 		});
 		
 	})
 
 </script>
-<form id="write-form" method="POST">
+<form id="write-form" method="POST" enctype="multipart/form-data">
 	<fieldset>
 		<legend>글쓰기</legend>
 		<div>
@@ -107,6 +107,10 @@ button#save {
 			<label></label>
 			<textarea id="b_content" rows="5" cols="20" name="b_content"></textarea>
 		</div>
+		<div>
+			<label>이미지</label><input type="file" name="file" accept="image/*">
+		</div>
+		
 		<div class="button-box">
 			<button type="button" id="list">리스트</button>
 			<button type="submit" id="save">저장</button>
