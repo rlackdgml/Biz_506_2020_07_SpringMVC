@@ -61,4 +61,10 @@ public class FileServiceImplV1 implements FileService  {
 		
 	}
 
+	@Override
+	public boolean fileDelete(String b_file) {
+		
+		return false;
+	}
+
 }
