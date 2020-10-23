@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.InsertProvider;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.SelectKey;
 import org.apache.ibatis.annotations.UpdateProvider;
 
 import com.biz.bbs.model.BBsVO;
@@ -24,6 +25,10 @@ public interface BBsDao {
 	 */
 	
 	@InsertProvider(type=BBsSQL.class,method="bbs_insert")
+	@SelectKey(keyProperty = "b_seq",
+			   statement = "SELECT SEQ_BBS.NEXTVAL FROM DUAL",
+			   resultType = Long.class,before = true)	
+				
 	public int insert(BBsVO bbsVO);
 	
 	@UpdateProvider(type=BBsSQL.class,method="bbs_update")
