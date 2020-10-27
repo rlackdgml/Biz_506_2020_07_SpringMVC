@@ -3,5 +3,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="rootPath" value ="${pageContext.request.contextPath}"/>
 <header>
-	<h2>BBS 2020</h2>
+	<h2>EMS 2020</h2>
 </header>

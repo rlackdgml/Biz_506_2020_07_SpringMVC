@@ -23,10 +23,8 @@ import com.biz.bbs.service.FileService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
+ 
 @Slf4j
-
-@Controller
-@RequestMapping(value="/bbs")
 public class BbsController {
 	
 	@Autowired

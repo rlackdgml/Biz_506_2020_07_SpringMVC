@@ -34,12 +34,19 @@ body {
 }
 
 header {
-	background-color: blueviolet;
 	color: white;
 	padding: 1.2rem;
 	text-align: center;
+	background-image: url("/files/email_ss_1920.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	background-attachment: fixed;
+	position: relative;
+	
 }
 
+}
 nav ul {
 	list-style: none;
 	display: flex;
@@ -83,10 +90,10 @@ footer {
 <body>
 	<%
 		/* 
-		tiles:insertAttribute
-		다른 jsp 파일을 부착하는 용도의 설정값
-		여기에 name으로 설정된 부분에 tile.xml 파일에서 지정한 jsp파일이 부착된다
-		*/
+	tiles:insertAttribute
+	다른 jsp 파일을 부착하는 용도의 설정값
+	여기에 name으로 설정된 부분에 tile.xml 파일에서 지정한 jsp파일이 부착된다
+	*/
 	%>
 	<tiles:insertAttribute name="header" />
 	<tiles:insertAttribute name="nav" />
