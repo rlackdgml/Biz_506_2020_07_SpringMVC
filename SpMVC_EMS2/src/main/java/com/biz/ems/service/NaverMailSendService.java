@@ -60,15 +60,15 @@ public class NaverMailSendService {
 			// 두번째값을 true : HTML 적용을 한 메시지를 보낼수 있다.
 			mHelper.setText(emsVO.getS_content(), true);
 
-			// 
+			// 본문에 첨부파일을 첨가하여 전송하기
 			FileSystemResource rs = null;
-			if (!s_file1.isEmpty()) {
+			if (s_file1 != null && !s_file1.isEmpty()) {
 
 				rs = new FileSystemResource(new File(uploadFolder, s_file1));
 				mHelper.addAttachment(s_file1, rs);
 
 			}
-			if (!s_file2.isEmpty()) {
+			if (s_file2 != null && !s_file2.isEmpty()) {
 				rs = new FileSystemResource(new File(uploadFolder, s_file2));
 				mHelper.addAttachment(s_file2, rs);
 			}
