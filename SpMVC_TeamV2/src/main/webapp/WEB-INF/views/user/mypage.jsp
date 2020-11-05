@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="rootPath" value="${pageContext.request.contextPath}" />
 
@@ -29,7 +30,7 @@ img {
 	height: 300px;
 	border-radius: 25px;
 	border: 5px double #999;
-	margin: 30px auto;
+	margin: 3s0px auto;
 	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
@@ -77,7 +78,7 @@ input#user {
 	margin: 10px;
 	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 	border-bottom: 1px solid;
-	width: 55%;
+	width: 63%;
 }
 
 #btn-box button {
@@ -93,31 +94,23 @@ input#user {
 	border: 0;
 }
 </style>
-
-<script>
-
-
-</script>
-<section>
-	<section>
-		<form>
-			<div id="wrap">
-			
-				<img src="/resources/img/pro.jpg" />
-				<h1 class="member">My Page</h1>
-				<div class="form">
-					<div class="form2">
-						<div class="form3">
-							<label for="user">아이디</label><input type="text" id="user" />
-							<div class="clear"></div>
-							<label for="user">변경할 비밀번호</label><input type="password" id="user" /> <label for="user">비밀번호확인</label><input type="password" id="user" />
-							<div id="btn-box">
-								<button type="button">저장</button>
-								<button type="button">홈으로</button>
-							</div>
-						</div>
+<form>
+	<div id="wrap">
+		<img src="${rootPath}/resources/imga/pro.jpg" />
+		<h1 class="member">My Page</h1>
+		<div class="form">
+			<div class="form2">
+				<div class="form3">
+					<label for="user">회원 아이디</label><input type="text" id="user" />
+					<div class="clear"></div>
+					<label for="user">변경할 비밀번호</label><input type="password" id="user" />
+					<label for="user">비밀번호확인</label><input type="password" id="user" />
+					<div id="btn-box">
+						<button type="button">저장</button>
+						<button type="button">홈으로</button>
 					</div>
 				</div>
 			</div>
-		</form>
-	</section>
+		</div>
+	</div>
+</form>

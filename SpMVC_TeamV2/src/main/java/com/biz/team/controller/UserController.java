@@ -1,7 +1,6 @@
 package com.biz.team.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -18,15 +17,9 @@ public class UserController {
 	public String logout() {
 		return "/user/logout";
 	}
-	
-	@RequestMapping(value = "/mypage",method=RequestMethod.GET)
+
+	@RequestMapping(value="/mypage",method=RequestMethod.GET)
 	public String mypage() {
 		return "/user/mypage";
 	}
-	
-	@RequestMapping(value = "/mypage",method=RequestMethod.POST)
-	public String mypage(Model model) {
-		return "redirect:/bbs/list";
-	}
-
 }
