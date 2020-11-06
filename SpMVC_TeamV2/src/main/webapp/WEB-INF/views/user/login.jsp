@@ -1,7 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="rootPath" value="${pageContext.request.contextPath}" />
+<script>
+	$(function() {
+		$("button").click(function() {
+			document.location.href = "${rootPath}/user/join"
+		})
+	})
+</script>
 <style>
 header, nav, footer {
 	display: none;
@@ -113,10 +119,7 @@ h4#login-fail {
 			<c:remove var="SPRING_SECURITY_LAST_EXCEPTION" scope="session" />
 		</c:if>
 
-		<input type="hidden" name="${_csrf.parameterName}"
-			value="${_csrf.token}"> <input name="username"
-			placeholder="사용자 ID" /> <input name="password" type="password"
-			placeholder="비밀번호" />
+		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"> <input name="username" placeholder="사용자 ID" /> <input name="password" type="password" placeholder="비밀번호" />
 		<button>로그인</button>
 		<button type="button">회원가입</button>
 	</form>

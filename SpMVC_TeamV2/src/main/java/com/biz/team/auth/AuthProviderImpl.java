@@ -20,23 +20,15 @@ import com.biz.team.model.UserVO;
 
 import lombok.extern.slf4j.Slf4j;
 
-/*
- * 
- * spring seucrity의 
- * authentication-manager에서 사용할
- * authentication-provider 클래스 Customizing 수행하기
- * 
- */
+
 @Slf4j
 public class AuthProviderImpl implements AuthenticationProvider{
 
-	// spring security를 통하여 login을 수행했을때 호출되는 method
+
 		@Override
 		public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 
-			// 사용자ID를 추출하기
-			// String username = (String) authentication.getPrincipal();
-			// String username = authentication.getPrincipal().toString();
+	
 			String username = authentication.getName();
 			
 			// username "admin" or "user1" or "guest"
@@ -49,21 +41,9 @@ public class AuthProviderImpl implements AuthenticationProvider{
 				
 				String msg = String.format("[%s] 사용자 ID를 확인하세요", username);
 				
-				/*
-				 * throw new Exception(message)
-				 * throw : 강제로 exception을 발생시켜라
-				 * 
-				 * spring security login이 진행되는 도중에
-				 * 어떤 문제가 발생을 하면
-				 * 메시지를 만들고 강제로 exception을 발생시키면
-				 * spring security에게 메시지를 전달하는 효과가 나타난다.
-				 * 
-				 * authenticate() method는 실행을 멈추고
-				 * 		spring security 가 메시지를 수신하여 다시 login 화면을 열고
-				 * 		메시지를 보여준다.
-				 */
+			
 				throw new InternalAuthenticationServiceException(msg);
-				// throw new UsernameNotFoundException(msg);
+				
 				
 			}
 			
@@ -90,9 +70,7 @@ public class AuthProviderImpl implements AuthenticationProvider{
 				throw new CredentialsExpiredException("사용자 계정의 권한이 없습니다");
 			}
 			
-			// ROLE 정보 테스트 값 생성
-			// 사용자ID에 부여된 ROLE List를 만들어서 추가하고
-			// JSP 등에서 사용해 보자
+			
 			List<GrantedAuthority> authList = new ArrayList<>();
 			
 			if(username.equals("admin")) {
@@ -103,17 +81,12 @@ public class AuthProviderImpl implements AuthenticationProvider{
 				authList.add(new SimpleGrantedAuthority("ROLE_GUEST"));	
 			}
 			
-			// 로그인만 성공을 하고 ROLE 정보 인가정보들이 모두 false인
-			// 사용자 데이터를 생성하고
-			// login 성공 메시지를 만들기
 			UsernamePasswordAuthenticationToken token 
 			= new UsernamePasswordAuthenticationToken(new UserVO(),null,authList);
 			
 			return token;
 		}
 
-		// 현재 만들어진 AuthProviderImpl을 spring seucrity에서 사용가능하도록 설정
-		// return값을 true로하여 사용가능한 상태로 전환
 		@Override
 		public boolean supports(Class<?> authentication) {
 			// TODO Auto-generated method stub
