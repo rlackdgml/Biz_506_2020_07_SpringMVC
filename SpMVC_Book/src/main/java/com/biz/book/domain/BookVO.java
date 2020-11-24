@@ -25,12 +25,15 @@ import lombok.ToString;
 @Entity
 @Table(name="tbl_book",schema = "user1")
 public class BookVO {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "S_BOOK")
-	@SequenceGenerator(name = "S_BOOK",sequenceName = "SEQ_BOOK",allocationSize = 1)
-	private long id;
+	@SequenceGenerator(name="S_BOOK",
+				sequenceName = "SEQ_BOOK",
+				allocationSize = 1)	
+	private Long id;
 	
-	@Column(name = "title",columnDefinition = "nVARCHAR2(120)")
+	@Column(name="title",columnDefinition = "nVARCHAR2(120)")
 	private String title;
 	
 	@Column(columnDefinition = "nVARCHAR2(50)")

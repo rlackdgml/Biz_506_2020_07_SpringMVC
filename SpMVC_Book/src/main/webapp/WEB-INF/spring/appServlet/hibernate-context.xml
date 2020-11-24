@@ -6,35 +6,30 @@
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd
 		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context-4.3.xsd
-		http://www.springframework.org/schema/data/jpa https://www.springframework.org/schema/data/jpa/spring-jpa-1.8.xsd
+		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.11.xsd
 		http://www.springframework.org/schema/tx https://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
-	<bean id="oracleDS"
-		class="org.apache.commons.dbcp2.BasicDataSource">
-		<property name="driverClassName"
-			value="oracle.jdbc.driver.OracleDriver" />
-		<property name="url"
-			value="jdbc:oracle:thin:@localhost:1521:xe" />
-		<property name="username" value="user1" />
-		<property name="password" value="user1" />
+	<bean id="oracleDS" class="org.apache.commons.dbcp2.BasicDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+		<property name="username" value="user1"/>
+		<property name="password" value="user1"/>
 	</bean>
-
+	
 	<context:annotation-config />
-	<tx:annotation-driven />
-
-	<bean id="transactionmanager" class="org.springframework.orm.jpa.JpaTransactionManager">
-		<property name="dataSource" ref="oracleDS" />
+	<tx:annotation-driven/>
+	
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="dataSource" ref="oracleDS"/>
 	</bean>
-	<!-- JPA 의 exception을 spring exception으로 변환하기 -->
-	<bean
-		class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"></bean>
-	<bean id="entityManagerFactory"
-		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-		<property name="dataSource" ref="oracleDS" />
-		<property name="packagesToScan" value="com.biz.book.domain" />
+	<!-- jap의 exception을 spring exception으로 변환하기 -->
+	<bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"></bean>
+	
+	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="oracleDS"/>
+		<property name="packagesToScan" value="com.biz.book.domain"/>
 		<property name="jpaVendorAdapter">
-			<bean
-				class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
 		</property>
 		<property name="jpaProperties">
 			<props>
@@ -47,7 +42,10 @@
 				<prop key="use_new_generator_mapping">true</prop>
 			</props>
 		</property>
+		
 	</bean>
+	
+	
 	<jpa:repositories base-package="com.biz.book.repository"/>
 
 
