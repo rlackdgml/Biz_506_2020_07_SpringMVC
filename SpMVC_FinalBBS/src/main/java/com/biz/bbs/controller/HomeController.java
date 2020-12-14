@@ -17,7 +17,7 @@ import com.biz.bbs.model.FinalVO;
 @Controller
 public class HomeController {
 	
-	@Autowired
+
 	@Qualifier("finalServiceV1")
 	FinalService finalService;
 
@@ -28,6 +28,11 @@ public class HomeController {
 
 
 		return "home";
+	}
+	@RequestMapping(value = "/write",method=RequestMethod.GET)
+	public String write(Model model) {
+		return "write";
+		
 	}
 	
 
